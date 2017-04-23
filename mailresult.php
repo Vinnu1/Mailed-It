@@ -73,7 +73,7 @@ color: #333333;
 font-family: ‘Arial Narrow’, sans-serif;
 font-style:italic;
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder { 
     font-family:'Arvo', serif;
 	font-style:normal;
 }
@@ -109,39 +109,36 @@ require $_SERVER['DOCUMENT_ROOT'].'/vendor/phpmailer/phpmailer/PHPMailerAutoload
 
 $mail = new PHPMailer;
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+//$mail->SMTPDebug = 3;                               
 
 $mail->isSMTP();    
 switch($_POST['es'])
 {
-	case 'yahoo':                                   // Set mailer to use SMTP
-				$mail->Host = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
+	case 'yahoo':                           
+				$mail->Host = 'smtp.mail.yahoo.com';  
 				$mail->Port = 465;
 				$mail->SMTPSecure = 'ssl'; 
 				break;
-	case 'gmail':                                   // Set mailer to use SMTP
-				$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+	case 'gmail':                                  
+				$mail->Host = 'smtp.gmail.com';  
 				$mail->Port = 465;
 				$mail->SMTPSecure = 'ssl'; 
 				break;
-	case 'outlook':                                   // Set mailer to use SMTP
-				$mail->Host = 'smtp.live.com';  // Specify main and backup SMTP servers
+	case 'outlook':                               
+				$mail->Host = 'smtp.live.com';  
 				$mail->Port = 587;
 				$mail->SMTPSecure = 'tls'; 
 				break;
 }
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = $_POST['e'];                 // SMTP username
-$mail->Password = $_POST['p'];                           // SMTP password
+$mail->SMTPAuth = true;                         
+$mail->Username = $_POST['e'];              
+$mail->Password = $_POST['p'];                  
 $mail->setFrom($_POST['e'], $_POST['n']);
-$mail->addAddress($_POST['re'], '');     // Add a recipient
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('vinnusinha@gmail.com', 'Vinnu');
+$mail->addAddress($_POST['re'], '');
 $mail->addCC($_POST['cc']);
 $mail->addBCC($_POST['bcc']);
-$mail->addAttachment($_FILES["photo"]["tmp_name"],$_FILES["photo"]["name"] );         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
+$mail->addAttachment($_FILES["photo"]["tmp_name"],$_FILES["photo"]["name"] );      
+$mail->isHTML(true);                             
 
 $mail->Subject = $_POST['sub'];
 $mail->Body    = $_POST['body'];
@@ -161,4 +158,4 @@ if(!$mail->send()) {
 Contact Vinayak &nbsp <a style="color:#505050" href="https://www.linkedin.com/in/vinayak-sinha-743125110/" title="Linkedin" target=_blank> <img border="0" alt="Linkedin" src="linkedin.png" width="20px" height="20px"></a> &nbsp <a style="color:#505050" href="https://www.github.com/Vinnu1" title="GitHub" target=_blank> <img border="0" alt="GitHub" src="g.png" width="20px" height="20px"></a>
 </div>
 </body>
-</form>
+</html>
