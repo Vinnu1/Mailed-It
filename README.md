@@ -4,5 +4,4 @@ It is a website build with PHP,HTML and CSS that uses PHPMailer to send mails. Y
 # PHPMailer
 You will need the PHPMailer library for this. Download it from [here](https://github.com/PHPMailer/PHPMailer).
 
-# Website
-You can see this website running [here](http://vinayak.16mb.com/mail.php).
+
